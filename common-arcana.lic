@@ -836,7 +836,6 @@ module DRCA
     return if training_spells.empty?
     return if DRStats.mana <= settings.waggle_spells_mana_threshold
 
-
     if checkcastrt > 0
       return
     elsif !XMLData.prepared_spell.eql?('None') && checkcastrt == 0
