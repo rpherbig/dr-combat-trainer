@@ -1291,6 +1291,8 @@ Throne City:
   npc_empath: # None
 Hibarnhvidar:
   currency: dokoras
+  nexus: # Shard
+    id: 9459
   vault:
     id: 13744
   shipment_clerk:
