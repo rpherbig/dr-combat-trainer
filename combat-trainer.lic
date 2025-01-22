@@ -506,7 +506,7 @@ class LootProcess
       echo("  @box_loot_limit: #{@box_loot_limit}") if $debug_mode_ct
     end
 
-    Flags.add('using-corpse', 'begins arranging', 'completes arranging', 'kneels down briefly and draws a knife', 'cruelly into the body and carving out a chunk', 'makes additional cuts, purposeful but seemingly at random')
+    Flags.add('using-corpse', 'begins arranging', 'completes arranging', 'kneels down briefly and draws a knife', 'cruelly into the body and carving out a chunk', 'makes additional cuts, purposeful but seemingly at random', 'cutting into where vital fluids once flowed', 'You begin to dismember the corpse')
     Flags.add('pouch-full', 'You think the .* is too full to fit another gem into', /You'd better tie it up before putting/)
     Flags.add('container-full', 'There isn\'t any more room')
   end
