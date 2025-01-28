@@ -109,6 +109,8 @@ cycle_armors_time: 125
 cycle_armors_hysteresis: true
 # works with cycle_armors, regalia, and hysteresis.  Which armor type to use when all others on your list are trained.
 default_armor_type:
+# Whether to use a yiamura in combat
+combat_trainer_use_yiamura: false
 # Skinning/dissect settings
 skinning:
   skin: true                     # Whether to skin or not

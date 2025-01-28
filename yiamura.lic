@@ -1,0 +1,48 @@
+=begin
+  Documentation: https://elanthipedia.play.net/Lich_script_repository#find
+=end
+
+class Yiamura
+  def initialize
+    arg_definitions = [
+      [
+        { name: 'option', options: ['raise', 'observe', 'reset'], optional: true, description: 'Action to take.' }
+      ]
+    ]
+
+    args = parse_args(arg_definitions, true)
+
+    UserVars.yiamura = {} unless UserVars.yiamura
+    if args.option == "raise"
+      raise_yiamura
+    elsif args.option == "observe"
+      observe_yiamura
+    elsif args.option == "reset"
+      UserVars.yiamura = {}
+    else
+      echo("Yiamura raised: #{UserVars.yiamura['last_raised']}")
+      echo("Yiamura last observed: #{UserVars.yiamura['last_observed'].nil? ? 'never' : UserVars.yiamura['last_observed']}")
+      echo("Yiamura last raised room: #{UserVars.yiamura['last_raised_room_id']}")
+    end
+  end
+
+  def raise_yiamura
+    case DRC.bput("raise my yiamura", /but nothing happens/, /The air takes on a noticeable chill/)
+    when /but nothing happens/
+      echo("Yiamura already raised.")
+    when /The air takes on a noticeable chill/
+      echo("Yiamura raised.")
+      UserVars.yiamura['last_raised'] = Time.now
+      UserVars.yiamura['last_raised_room_id'] = Map.current.id
+    end
+  end
+
+  def observe_yiamura
+    case DRC.bput("observe my yiamura", /but nothing happens/, /Very quickly, your head reels as knowledge fills your mind/)
+    when /Very quickly, your head reels as knowledge fills your mind/
+      UserVars.yiamura['last_observed'] = Time.now
+    end
+  end
+end
+
+Yiamura.new

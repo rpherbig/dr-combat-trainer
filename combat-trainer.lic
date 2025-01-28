@@ -2403,6 +2403,9 @@ class AbilityProcess
     @pounce_on_cooldown = settings.pounce_on_cooldown
     echo("  @pounce_on_cooldown: #{@pounce_on_cooldown}") if $debug_mode_ct
 
+    @yiamura_exists = settings.combat_trainer_use_yiamura
+    echo("  @yiamura_exists: #{@yiamura_exists}") if $debug_mode_ct
+
     # Egg settings, for egg only
     @egg = settings.egg
     echo("  @egg: #{@egg}") if $debug_mode_ct
@@ -2425,15 +2428,30 @@ class AbilityProcess
 
   def execute(game_state)
     check_paladin_skills
+    check_yiamura if @yiamura_exists
     check_nonspell_buffs(game_state)
     check_battle_cries(game_state)
     use_warhorn_or_egg(game_state) unless @warhorn_or_egg.nil? || @warhorn_or_egg.empty?
-    game_state.stomp if @stomp_on_cooldown && game_state.npcs && Flags['war-stomp-ready']
+    game_state.stomp if DRStats.barbarian? && @stomp_on_cooldown && game_state.npcs && Flags['war-stomp-ready']
     game_state.pounce if DRStats.ranger? && @pounce_on_cooldown && game_state.npcs && Flags['pounce-ready']
     false
   end
 
   private
+
+  def check_yiamura
+    return unless @yiamura_exists
+    if UserVars.yiamura['last_raised']
+      return unless ((Time.now - UserVars.yiamura['last_raised'].to_i).to_i > 7200)
+    end
+
+    unless DRCI.exists?("yiamura")
+      echo "Yiamura is not present." if $debug_mode_ct
+      @yiamura_exists = false
+      return
+    end
+    DRC.wait_for_script_to_complete('yiamura', ['raise'])
+  end
 
   # Sets up our warhorn and/or egg use. Sets timers. Allows legacy use of warhorn: egg. Checks to
   # see if we're using a wearable warhorn or have it in a bag.
@@ -4217,7 +4235,7 @@ class GameState
   $staff_skills = ['Staves']
   $polearm_skills = ['Polearms']
   $melee_skills = $edged_skills + $blunt_skills + $staff_skills + $polearm_skills + ['Melee Mastery']
-  $thrown_skills = ['Heavy Thrown', 'Light Thrown']
+  $thrown_skills = ['Heavy Thrown', 'Light Thrown', 'Missile Mastery']
   $twohanded_skills = ['Twohanded Edged', 'Twohanded Blunt']
   $aim_skills = ['Bow', 'Slings', 'Crossbow']
   $ranged_skills = $thrown_skills + $aim_skills + ['Missile Mastery']
@@ -5283,7 +5301,7 @@ class GameState
   def dual_load?
     @dual_load && weapon_skill == 'Bow' &&
       DRSkill.getrank('Bow') >= 201 && DRStats.agility >= 30 && DRStats.reflex >= 30 &&
-      (DRSpells.active_spells['See the Wind'] || DRStats.barbarian? || DRSpells.active_spells['Khri Steady'])
+      (DRSpells.active_spells['See the Wind'] || DRSpells.active_spells['Eagle'] || DRSpells.active_spells['Khri Steady'])
   end
 
   def prepare_summoned_weapon(weapon_already_summoned)

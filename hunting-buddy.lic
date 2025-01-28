@@ -446,6 +446,13 @@ class HuntingBuddy
   end
 
   # ------------------------------------------------------------
+  def yiamura_all_done?
+    return true unless UserVars.yiamura
+    return true unless UserVars.yiamura['last_raised_room_id'] == Map.current.id
+
+    return (Time.now - UserVars.yiamura['last_raised'].to_i).to_i > 600
+  end
+  # ------------------------------------------------------------
 
   # Is your current encumbrance at or higher than the threshold?
   # Threshold is a number from 0 (None) to 11 (It's amazing you aren't squashed!)
@@ -513,11 +520,11 @@ class HuntingBuddy
         DRC.message("***STATUS*** Stopping because no moons")
         break
       end
-      if should_stop_for_high_skills?(stop_on_high_skills)
+      if should_stop_for_high_skills?(stop_on_high_skills) && yiamura_all_done?
         DRC.message("***STATUS*** Stopping because skills reached learning threshold: #{stop_on_high_skills}")
         break
       end
-      if should_stop_for_low_skills?(stop_on_low_skills)
+      if should_stop_for_low_skills?(stop_on_low_skills) && yiamura_all_done?
         DRC.message("***STATUS*** Stopping because skills dropped below learning threshold: #{stop_on_low_skills}")
         break
       end
@@ -526,11 +533,11 @@ class HuntingBuddy
         @next_hunt = false
         break
       end
-      if duration && (counter / 60) >= duration
+      if (duration && (counter / 60) >= duration) && yiamura_all_done?
         DRC.message("***STATUS*** Stopping because time")
         break
       end
-      if Flags['hunting-buddy-stop-to-burgle'] && (@stop_to_burgle || stop_on_burgle_cooldown)
+      if Flags['hunting-buddy-stop-to-burgle'] && (@stop_to_burgle || stop_on_burgle_cooldown) && yiamura_all_done?
         DRC.message("***STATUS*** Stopping because it's burgle time!")
         Flags.reset('hunting-buddy-stop-to-burgle')
         break
