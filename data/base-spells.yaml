@@ -557,6 +557,10 @@ spell_data:
     mana_type: ap
     prep: prepare
     guild:
+    minrank: 0
+    maxrank: 400
+    minmana: 1
+    maxmana: 33
   Dispel:
     skill: Utility
     abbrev: DISPEL
@@ -564,6 +568,10 @@ spell_data:
     mana_type: ap
     prep: prepare
     guild:
+    minrank: 80
+    maxrank: 800
+    minmana: 15
+    maxmana: 100
   Ease Burden:
     skill: Augmentation
     abbrev: EASE
@@ -573,6 +581,10 @@ spell_data:
     prep: prepare
     recast: 1
     guild:
+    minrank: 0
+    maxrank: 400
+    minmana: 1
+    maxmana: 100
   Gauge Flow:
     skill: Utility
     mana: 5
@@ -582,6 +594,10 @@ spell_data:
     prep: prepare
     recast: 1
     guild:
+    minrank: 10
+    maxrank: 600
+    minmana: 5
+    maxmana: 100
   Imbue:
     skill: Utility
     mana: 15
@@ -589,6 +605,10 @@ spell_data:
     mana_type: ap
     prep: prepare
     guild:
+    minrank: 80
+    maxrank: 800
+    minmana: 15
+    maxmana: 100
   Lay Ward:
     skill: Warding
     abbrev: LW
@@ -598,6 +618,10 @@ spell_data:
     harmless: true
     prep: prepare
     guild:
+    minrank: 10
+    maxrank: 600
+    minmana: 5
+    maxmana: 100
   Manifest Force:
     skill: Warding
     abbrev: MAF
@@ -607,6 +631,10 @@ spell_data:
     harmless: true
     prep: prepare
     guild:
+    minrank: 0
+    maxrank: 400
+    minmana: 1
+    maxmana: 100
   Seal Cambrinth:
     skill: Utility
     ritual: true
@@ -616,6 +644,10 @@ spell_data:
     prep: prepare
     recast: 2
     guild:
+    minrank: 10
+    maxrank: 600
+    minmana: 50
+    maxmana: 600
   Strange Arrow:
     skill: Targeted Magic
     abbrev: STRA
@@ -623,6 +655,10 @@ spell_data:
     mana_type: ap
     prep: target
     guild:
+    minrank: 0
+    maxrank: 400
+    minmana: 1
+    maxmana: 50
 
 ####################
 #       Bard       #
@@ -636,6 +672,10 @@ spell_data:
     mana_type: elemental
     recast: -1
     guild: Bard
+    minrank: 250
+    maxrank: 1000
+    minmana: 7
+    maxmana: 37
   Aether Wolves:
     skill: Debilitation
     harmless: true
@@ -644,6 +684,10 @@ spell_data:
     mana: 2
     mana_type: elemental
     guild: Bard
+    minrank: 0
+    maxrank: 400
+    minmana: 1
+    maxmana: 33
   Albreda's Balm:
     skill: Debilitation
     harmless: true
@@ -654,6 +698,10 @@ spell_data:
     mana_type: elemental
     recast: -1
     guild: Bard
+    minrank: 250
+    maxrank: 1000
+    minmana: 5
+    maxmana: 25
   Aura of Tongues:
     skill: Utility
     abbrev: AOT
@@ -662,6 +710,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 0
+    maxrank: 400
+    minmana: 1
+    maxmana: 100
   Beckon the Naga:
     skill: Targeted Magic
     heavy: true
@@ -671,6 +723,10 @@ spell_data:
     expire: You think it is safe enough to summon another lesser naga
     mana_type: elemental
     guild: Bard
+    minrank: 250
+    maxrank: 1000
+    minmana: 30
+    maxmana: 100
   Blessing of the Fae:
     skill: Augmentation
     abbrev: BOTF
@@ -680,6 +736,10 @@ spell_data:
     prep: prepare
     recast: -1
     guild: Bard
+    minrank: 80
+    maxrank: 800
+    minmana: 5
+    maxmana: 25
   Breath of Storms:
     skill: Targeted Magic
     abbrev: BOS
@@ -687,6 +747,10 @@ spell_data:
     mana_type: elemental
     prep: target
     guild: Bard
+    minrank: 10
+    maxrank: 600
+    minmana: 2
+    maxmana: 50
   Caress of the Sun:
     skill: Utility
     abbrev: CARE
@@ -695,6 +759,10 @@ spell_data:
     prep: prepare
     recast: 1
     guild: Bard
+    minrank: 0
+    maxrank: 400
+    minmana: 1
+    maxmana: 100
   Damaris' Lullaby:
     skill: Debilitation
     harmless: true
@@ -705,6 +773,10 @@ spell_data:
     prep: prepare
     recast: -1
     guild: Bard
+    minrank: 10
+    maxrank: 600
+    minmana: 6
+    maxmana: 31
   Demrris' Resolve:
     skill: Debilitation
     harmless: true
@@ -713,6 +785,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 10
+    maxrank: 600
+    minmana: 3
+    maxmana: 66
   Desert's Maelstrom:
     skill: Debilitation
     abbrev: DEMA
@@ -721,6 +797,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 250
+    maxrank: 1000
+    minmana: 20
+    maxmana: 66
   Drums of the Snake:
     skill: Augmentation
     mana: 15
@@ -729,6 +809,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 80
+    maxrank: 800
+    minmana: 15
+    maxmana: 100
   Echoes of Aether:
     skill: Augmentation
     ritual: true
@@ -738,6 +822,10 @@ spell_data:
     prep: prepare
     recast: 2
     guild: Bard
+    minrank: 80
+    maxrank: 800
+    minmana: 150
+    maxmana: 700
   Eillie's Cry:
     skill: Augmentation
     abbrev: ECRY
@@ -746,6 +834,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 0
+    maxrank: 400
+    minmana: 1
+    maxmana: 100
   Eye of Kertigen:
     skill: Utility
     abbrev: EYE
@@ -755,6 +847,10 @@ spell_data:
     prep: prepare
     recast: -1
     guild: Bard
+    minrank: 80
+    maxrank: 800
+    minmana: 5
+    maxmana: 25
   Faenella's Grace:
     skill: Augmentation
     abbrev: FAE
@@ -764,6 +860,10 @@ spell_data:
     prep: prepare
     recast: -1
     guild: Bard
+    minrank: 0
+    maxrank: 400
+    minmana: 2
+    maxmana: 15
   Failure of the Forge:
     skill: Warding
     abbrev: FOTF
@@ -772,6 +872,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 10
+    maxrank: 600
+    minmana: 5
+    maxmana: 100
   Glythtide's Joy:
     skill: Warding
     abbrev: GJ
@@ -781,6 +885,10 @@ spell_data:
     prep: prepare
     recast: -1
     guild: Bard
+    minrank: 10
+    maxrank: 600
+    minmana: 5
+    maxmana: 25
   Harmony:
     skill: Augmentation
     abbrev: Harmony
@@ -789,6 +897,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 250
+    maxrank: 1000
+    minmana: 30
+    maxmana: 100
   Hodierna's Lilt:
     skill: Utility
     abbrev: HODI
@@ -798,6 +910,10 @@ spell_data:
     prep: prepare
     recast: -1
     guild: Bard
+    minrank: 10
+    maxrank: 600
+    minmana: 5
+    maxmana: 25
   Misdirection:
     skill: Augmentation # Also Debilitation
     harmless: true
@@ -807,6 +923,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 80
+    maxrank: 800
+    minmana: 10
+    maxmana: 66
   Naming of Tears:
     abbrev: NAME
     skill: Warding
@@ -815,6 +935,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 80
+    maxrank: 800
+    minmana: 10
+    maxmana: 66
   Nexus:
     skill: Utility
     abbrev: NEXUS
@@ -824,6 +948,10 @@ spell_data:
     prep: prepare
     recast: 1
     guild: Bard
+    minrank: 250
+    maxrank: 1000
+    minmana: 30
+    maxmana: 100
   Phoenix's Pyre:
     skill: Targeted Magic
     abbrev: PYRE
@@ -834,6 +962,10 @@ spell_data:
     mana_type: elemental
     recast: -1
     guild: Bard
+    minrank: 250
+    maxrank: 1000
+    minmana: 7
+    maxmana: 37
   Rage of the Clans:
     skill: Augmentation
     mana: 15
@@ -842,6 +974,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 80
+    maxrank: 800
+    minmana: 15
+    maxmana: 100
   Redeemer's Pride:
     abbrev: REPR
     skill: Warding
@@ -850,6 +986,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 10
+    maxrank: 600
+    minmana: 5
+    maxmana: 100
   Resonance:
     skill: Utility
     mana: 15
@@ -858,6 +998,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 80
+    maxrank: 800
+    minmana: 15
+    maxmana: 100
   Sanctuary:
     skill: Utility
     abbrev: SANCTUARY
@@ -867,6 +1011,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 250
+    maxrank: 1000
+    minmana: 5
+    maxmana: 25
   Soul Ablaze:
     skill: Augmentation
     abbrev: SOUL
@@ -876,6 +1024,10 @@ spell_data:
     prep: prepare
     recast: 2
     guild: Bard
+    minrank: 250
+    maxrank: 1000
+    minmana: 300
+    maxmana: 800
   Whispers of the Muse:
     skill: Augmentation
     abbrev: WOTM
@@ -884,6 +1036,10 @@ spell_data:
     mana_type: elemental
     prep: prepare
     guild: Bard
+    minrank: 10
+    maxrank: 600
+    minmana: 5
+    maxmana: 100
   Will of Winter:
     skill: Augmentation
     abbrev: WILL
@@ -893,6 +1049,10 @@ spell_data:
     prep: prepare
     recast: 2
     guild: Bard
+    minrank: 80
+    maxrank: 800
+    minmana: 150
+    maxmana: 700
   Words of the Wind:
     skill: Augmentation
     abbrev: WORD
@@ -902,6 +1062,10 @@ spell_data:
     prep: prepare
     recast: 2
     guild: Bard
+    minrank: 10
+    maxrank: 600
+    minmana: 50
+    maxmana: 600
 
 ####################
 #      Cleric      #
@@ -1621,7 +1785,6 @@ spell_data:
     mana_type: lunar
     prep: target
     guild: Moon Mage
-    any_celestial_object: true
   Cage of Light:
     skill: Warding
     abbrev: CoL
@@ -1663,7 +1826,6 @@ spell_data:
     mana_type: lunar
     prep: prepare
     guild: Moon Mage
-    bright_celestial_object: true
   Destiny Cipher:
     skill: Utility
     abbrev: DC
@@ -2091,6 +2253,17 @@ spell_data:
     mana_type: arcane
     prep: target
     guild: Necromancer
+  Bonegrinder:
+    skill: Targeted Magic
+    abbrev: bonegrinder
+    prep: target
+    mana: 20
+    mana_type: arcane
+    guild: Necromancer
+    minmana: 20
+    maxmana: 66
+    minrank: 250
+    maxrank: 1000
   Book Burning:
     skill: Utility #Also Targeted Magic
     abbrev: BB
