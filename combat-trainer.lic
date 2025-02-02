@@ -1856,6 +1856,10 @@ class SpellProcess
                      .select { |skill| Time.now > (@training_spells[skill]['cyclic'] ? @training_cyclic_timer : @training_cast_timer) }
                      .select { |skill| @training_spells[skill]['night'] ? UserVars.sun['night'] : true }
                      .select { |skill| @training_spells[skill]['day'] ? UserVars.sun['day'] : true }
+                     .select { |skill| @training_spells[skill]['bright_celestial_object'] ? DRCMM.bright_celestial_object? : true }
+                     .select { |skill| @training_spells[skill]['any_celestial_object'] ? DRCMM.any_celestial_object? : true }
+                     .select { |skill| @training_spells[skill]['no_bright_celestial_object'] ? !DRCMM.bright_celestial_object? : true }
+                     .select { |skill| @training_spells[skill]['no_celestial_object'] ? !DRCMM.any_celestial_object? : true }
     DRC.message "all eligible training spells: #{needs_training}" if $debug_mode_ct
     needs_training = game_state.sort_by_rate_then_rank(needs_training).first
     return unless needs_training
@@ -2140,6 +2144,10 @@ class SpellProcess
                    .select { |spell| spell['day'] ? UserVars.sun['day'] : true }
                    .select { |spell| spell['slivers'] ? (DRSpells.slivers || @tk_ammo) : true }
                    .select { |spell| spell['starlight_threshold'] ? enough_starlight?(game_state, spell) : true }
+                   .select { |spell| spell['bright_celestial_object'] ? DRCMM.bright_celestial_object? : true }
+                   .select { |spell| spell['any_celestial_object'] ? DRCMM.any_celestial_object? : true }
+                   .select { |spell| spell['no_bright_celestial_object'] ? !DRCMM.bright_celestial_object? : true }
+                   .select { |spell| spell['no_celestial_object'] ? !DRCMM.any_celestial_object? : true }
     echo "Ready Spells: #{ready_spells.to_yaml}" if $debug_mode_ct
 
     data = if @offensive_spell_cycle.empty?
