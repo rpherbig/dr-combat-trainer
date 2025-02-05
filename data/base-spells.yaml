@@ -250,6 +250,7 @@ cast_messages:
 - wave of light ripples outward from you
 - ^You throw your head back
 - Steadying your breath, you briefly point one arm up and the other towards the ground, forming a conduit through your body.
+- ^You hold out your (right|left) hand, palm facing up.
 # You tried to cast an offensive spell and the target no longer exists
 - There is nothing else to face
 # If don't know the cast command, like 'barrage'
@@ -2114,6 +2115,13 @@ spell_data:
     abbrev: SM
     mana: 15
     recast: 1
+    mana_type: lunar
+    prep: prepare
+    guild: Moon Mage
+  Sorrow:
+    skill: Targeted Magic
+    abbrev: sorrow
+    mana: 15
     mana_type: lunar
     prep: prepare
     guild: Moon Mage
