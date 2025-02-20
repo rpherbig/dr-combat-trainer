@@ -74,8 +74,8 @@ class HuntingBuddy
   # make it possible to have all hunting profiles in single file (assuming true multiple yamls aren't needed)
   def retrieve_settings(character_file_suffix)
     if @settings.hunting_profiles_single_yaml
-      suffix = character_file_suffix == 'setup' ? '' : '_'+character_file_suffix
-      return eval('@settings.hunting_info'+suffix)
+      suffix = character_file_suffix == 'setup' ? '' : '_' + character_file_suffix
+      return eval('@settings.hunting_info' + suffix)
     else
       return get_settings([character_file_suffix]).hunting_info
     end
