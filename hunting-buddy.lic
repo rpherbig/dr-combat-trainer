@@ -58,7 +58,7 @@ class HuntingBuddy
     echo("  hunting_files: #{hunting_files}") if $debug_mode_hunting
 
     hunting_files.each do |character_file_suffix|
-      infos = get_settings([character_file_suffix]).hunting_info
+      infos = retrieve_settings(character_file_suffix)
       infos.each do |info|
         info['args'] ||= []
         # Hunting info from extra config needs the config name passed on in args
@@ -68,6 +68,16 @@ class HuntingBuddy
         end
       end
       @hunting_info += infos
+    end
+  end
+
+  # make it possible to have all hunting profiles in single file (assuming true multiple yamls aren't needed)
+  def retrieve_settings(character_file_suffix)
+    if @settings.hunting_profiles_single_yaml
+      suffix = character_file_suffix == 'setup' ? '' : '_' + character_file_suffix
+      return eval('@settings.hunting_info' + suffix)
+    else
+      return get_settings([character_file_suffix]).hunting_info
     end
   end
 
